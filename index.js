@@ -7,7 +7,7 @@ function makeChar(){
 }
 
 function genText() {
-    const w = 40;
+    const w = 45;
     const h = 50;
 
     for(let i = 0; i < w; i++)

@@ -77,7 +77,6 @@ body {
 
 .matrix {
     z-index: -3;
-    padding-left: -10vw;
     position: absolute;
     overflow: hidden;
     width: 100vw;
@@ -85,12 +84,10 @@ body {
 }
 
 .matrix-text {
-    width: 0px;
-    padding-right: 2rem;
     font-size:var(--font-size-md);
     text-orientation: upright;
     writing-mode: vertical-rl;
-    display: inline-block;
+    display: contents;
 }
 
 .matrix-text span {
