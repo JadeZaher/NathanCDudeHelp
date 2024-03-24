@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="index.js"></script>
+<body>
+    <!-- filter info -->
+    <svg class="filter" xmlns="http://www.w3.org/2000/svg">
+        <filter id="alphaPink">
+                  <feColorMatrix
+                    type="matrix"
+                    values=" 1.000  0.000  0.000  0.000  0.000 
+                             0.000  0.200  0.000  0.000  0.000 
+                             0.000  0.000  0.600  0.000  0.000 
+                             0.000  0.000  0.000  1.000  0.000">
+                  </feColorMatrix>
+        </filter>
+        <filter id="alphaGreen">
+            <feColorMatrix mode="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="joint" />
+        </filter>
+        <filter id="alphaBlue">
+            <feColorMatrix mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="joint" />
+        </filter>
+        <filter id="alpha">
+            <feColorMatrix type="saturate" values="0"/>
+        </filter>
+    </svg>
+    
+    <div id="matrix" class="matrix"></div>
+    <div class="content">
+        <div class="imgWrap">
+            <img src="Header/SimpleAppGreen.png" alt="Header" class="header green">
+            <img src="Header/SimpleAppPink.png" alt="Header" class="header pink">
+            <img src="Header/SimpleAppBlue.png" alt="Header" class="header blue">
+        </div>
+        <h1 class="glitch" data-glitch="the lag is a feature not a bug">the lag is a feature not a bug</h1> 
+        <p1 class="blurbtext">
+            <br>
+            Voluptate fugiat aliqua mollit ex irure. 
+            Deserunt occaecat nostrud nulla irure anim id ex.
+            Ullamco cillum nostrud enim culpa dolor esse.
+        </p1>
+    </div>
+</body>
+</html>
