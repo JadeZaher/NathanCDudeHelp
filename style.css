@@ -85,6 +85,7 @@ body {
 }
 
 .matrix {
+    transform: translateY(54%);
     z-index: -3;
     position: absolute;
     overflow: hidden;
@@ -101,7 +102,6 @@ body {
 
 .matrix-digit {
     font-size:var(--font-size-md);
-    text-orientation: upright;
     writing-mode: vertical-rl;
     display: contents;
 }
@@ -132,6 +132,10 @@ body {
 @keyframes digitColor {
     from{
         color: var(--green);
+        opacity: 1;
+    }
+    5% {
+        color: var(--blue);
         opacity: 1;
     }
     to{

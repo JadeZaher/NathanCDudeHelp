@@ -39,12 +39,13 @@ function genText() {
 }
 
 function genDigit() {
-    const w = 45;
-    const h = 50;
+    const w = 30;
+    const h = 40;
 
     for(let i = 0; i < w; i++)
     {
-        const timeout = Math.floor(Math.random() * 10) * 1000;
+        var rand = Math.random() * 10;
+        const timeout = Math.floor(rand) * 1000;
         let delay = 0;
         const column = document.createElement("p");
         column.className = "matrix-digit";
@@ -56,11 +57,11 @@ function genDigit() {
             column.appendChild(letter);
 
             delay += 100;
-    
             column.children[j].style.animationDelay = delay + "ms";
-            column.children[j].transform = (timeout > .1 ? -1 : 1) *  delay / 20 + "turn";
+            column.children[j].style.transform = "rotate(" + ( rand > 5 ? '-' : '') +  60 * rand + "deg)";
+            column.children[j].style.transform = "translateY(" + (rand > 3 ? '-' : '') +  60 * rand + "px)";
         }
-
+        
         setTimeout(()=>
         {
             try{
