@@ -38,8 +38,10 @@ function genText() {
     }
 }
 
+const clamp = (val, min=1, max=10) => Math.min(Math.max(val, min), max)
+
 function genDigit() {
-    const w = 30;
+    const w = 40;
     const h = 40;
 
     for(let i = 0; i < w; i++)
@@ -58,8 +60,8 @@ function genDigit() {
 
             delay += 100;
             column.children[j].style.animationDelay = delay + "ms";
-            column.children[j].style.transform = "rotate(" + ( rand > 5 ? '-' : '') +  60 * rand + "deg)";
-            column.children[j].style.transform = "translateY(" + (rand > 3 ? '-' : '') +  60 * rand + "px)";
+            column.children[j].style.margin = clamp(rand * i / 1.2, 0, 15) + `px`;
+            column.children[j].style.fontSize = rand * j / 2.2 + 15 + `px`;
         }
         
         setTimeout(()=>

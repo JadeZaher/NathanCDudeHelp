@@ -5,6 +5,10 @@
     --font-size-md: clamp(.8rem, -1.5rem + 8vw, 2rem);
     --font-size-sm: clamp(.4rem, -1.5rem + 8vw, 1rem);
     
+    /* base size */
+    --sS: 8px;
+    --sM: 16px;
+    --sL: 32px;
     /* color vars */
     --blue: #00b8ff;
     --pink: #d600ff;
@@ -67,10 +71,12 @@
 
 
 .button-main{
-    margin-top: 25px;
-    padding: 12px;
-    outline: #00b8ff solid 2px;
-    background-color: var(--black);
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-elevation-medium);
+    margin: var(--sL);
+    margin-right: calc(var(--sL) * 5);
+    padding: var(--sL);
+    background-color: black;
     border-radius: 16px;
 }
 
@@ -85,7 +91,6 @@ body {
 }
 
 .matrix {
-    transform: translateY(54%);
     z-index: -3;
     position: absolute;
     overflow: hidden;
@@ -100,18 +105,20 @@ body {
     display: contents;
 }
 
-.matrix-digit {
-    font-size:var(--font-size-md);
-    writing-mode: vertical-rl;
-    display: contents;
-}
-.matrix-digit span{
-    animation: digitColor var(--time) linear infinite;
+.matrix-text span {
+    animation: matrix var(--time) linear infinite;
     opacity: 0;
 }
 
-.matrix-text span {
-    animation: matrix var(--time) linear infinite;
+.matrix-digit {
+    text-orientation: upright;
+    font-size:var(--font-size-sm);
+    writing-mode: vertical-rl;
+    display: contents;
+}
+
+.matrix-digit span{
+    animation: digitColor var(--time) linear infinite;
     opacity: 0;
 }
 
@@ -164,7 +171,8 @@ body {
 
 
 .content {
-    height: 80%;
+    margin: calc(5vw + 20px);
+    padding: 32px;
     border-radius: 25px;
     width: max-content;
     padding-left: 30px;
@@ -277,72 +285,5 @@ body {
    color: #fff;
    letter-spacing: 5px;
    z-index: 1;
-}
-
-.glitch:before,
-.glitch:after {
-   display: block;
-   content: attr(data-glitch);
-   position: absolute;
-   top: 10px;
-   left: 10px;
-   opacity: 0.8;
-   animation-delay: 40ms;
-}
-
-.glitch:hover::before {
-   animation: glitch-color .51s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-   color: #0ff;
-   z-index: -1;
-   animation-delay: 40ms;
-}
-
-.glitch:hover::after {
-   color: #ff00ff;
-   z-index: -2;
-   animation: glitch-color .51s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
-   animation-delay: 40ms;
-}
-
-@keyframes glitch-color {
-   0% {
-    clip-path: none;
-      transform: translate(0);
-      filter: blur(1px);
-   }
-
-   20% {
-       transform: translate(calc(var(--shim)*-1), var(--shim));
-      clip-path: var(--clip-1);
-      filter: blur(1px);
-    }
-    
-    40% {
-        transform: translate(var(--shim), calc(var(--shim)*-1));
-        clip-path: var(--clip-3);
-        filter: blur(5px);
-    }
-    
-    60% {
-        transform: translate(var(--shim), var(--shim));
-        clip-path: var(--clip-4);
-        filter: blur(5px);
-    }
-    
-    80% {
-        transform: translate(calc(var(--shim)*2), calc(var(--shim)*-2));
-        filter: blur(7px);
-   }
-    100% {
-        transform: translate(0);
-        filter: blur(7px);
-        opacity: 0;
-    }
-    
-    to {
-       clip-path: none;
-      transform: translate(0);
-      filter: blur(1px);
-   }
 }
 
